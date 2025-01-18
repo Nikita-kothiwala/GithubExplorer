@@ -32,5 +32,11 @@ GitHub Explorer is a React Native app for exploring GitHub repositories.
   - npx react-native run-android
 
 ## APK File
- - Download the APK file from android/app/build/outputs/apk/release/.
- - Install it on your Android device for testing.  
+ - You can find the apk file for installation in the [apk](apk/) folder.
+
+## Steps to Install:
+
+  - Navigate to the `apk` folder in this repository.
+  - Download the `app-release.apk` file.
+  - Transfer it to your android device.
+  - Open the APK file on your device and install the app.
