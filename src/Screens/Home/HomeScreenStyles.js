@@ -90,6 +90,12 @@ const HomeScreenStyles = StyleSheet.create({
         padding: scale(2),
         elevation: 11,
     },
+    errorMessage:{
+        fontSize: scale(14),
+        fontWeight: "500",
+        lineHeight: scale(24), 
+        top:scale(20)
+    }
 });
 
 export default HomeScreenStyles;

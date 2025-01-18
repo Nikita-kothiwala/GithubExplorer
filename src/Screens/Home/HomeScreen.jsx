@@ -1,4 +1,4 @@
-import React, { useState, useEffect ,useContext} from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { View, TextInput, FlatList, TouchableOpacity, ActivityIndicator, Text } from 'react-native';
 import { useTheme } from 'styled-components/native';
 import { searchRepositories } from '../../API/github';
@@ -9,14 +9,17 @@ import HomeScreenStyles from './HomeScreenStyles';
 import Logo from 'react-native-vector-icons/AntDesign';
 import Iconfavorite from 'react-native-vector-icons/MaterialIcons';
 import { ThemeContext } from '../../Context/Themecontext';
+
 const HomeScreen = ({ navigation, route }) => {
   const [query, setQuery] = useState(route.params?.query || '');
   const [repositories, setRepositories] = useState(route.params?.repositories || []);
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(route.params?.page || 1);
   const [focus, setFocus] = useState(null);
+  const [errorMessage, setErrorMessage] = useState('');
   const theme = useTheme();
-  const { isDarkMode, toggleDarkMode } = useContext(ThemeContext); 
+  const { isDarkMode, toggleDarkMode } = useContext(ThemeContext);
+
   const fetchRepositories = async () => {
     if (loading || !query) return;
     setLoading(true);
@@ -24,11 +27,23 @@ const HomeScreen = ({ navigation, route }) => {
       const newRepos = await searchRepositories(query, page);
       setRepositories((prev) => [...prev, ...newRepos]);
       setPage((prev) => prev + 1);
+      setErrorMessage(''); 
     } catch (error) {
-      console.error(error);
+      if (!errorMessage) {
+        setErrorMessage(error.message || 'An error occurred while fetching data.');
+      }
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleInputChange = (text) => {
+    if (!errorMessage) {
+      setErrorMessage(''); 
+    }
+    setQuery(text);
+    setRepositories([]); 
+    setPage(1);
   };
 
   useEffect(() => {
@@ -36,11 +51,6 @@ const HomeScreen = ({ navigation, route }) => {
       fetchRepositories();
     }
   }, [query]);
-
-  const toggleTheme = () => {
-    setIsDarkTheme(!isDarkTheme);
-    theme.toggleDarkMode(); 
-  };
 
   return (
     <View style={[HomeScreenStyles.container, { backgroundColor: theme.colors.background }]}>
@@ -75,11 +85,7 @@ const HomeScreen = ({ navigation, route }) => {
           onFocus={() => setFocus(true)}
           onBlur={() => setFocus(false)}
           value={query}
-          onChangeText={(text) => {
-            setQuery(text);
-            setRepositories([]); 
-            setPage(1);
-          }}
+          onChangeText={(text) => handleInputChange(text)}
           onSubmitEditing={fetchRepositories}
           style={[
             HomeScreenStyles.searchinput,
@@ -88,6 +94,14 @@ const HomeScreen = ({ navigation, route }) => {
           placeholderTextColor={theme.colors.placeholder}
         />
       </View>
+
+   
+      {errorMessage ? (
+        <Text style={[HomeScreenStyles.errorMessage,{color:theme.colors.textheader}]}>
+          {errorMessage}
+        </Text>
+      ) : null}
+
       <View style={HomeScreenStyles.list}>
         <FlatList
           data={repositories}
