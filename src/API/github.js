@@ -9,10 +9,7 @@ export const searchRepositories = async (query, page = 1) => {
     );
     return response.data.items;
   } catch (error) {
-    // Handle network error
-    if (!error.response) {
-      throw new Error('Network error. Please check your internet connection.');
-    }
-    throw error;
+    console.error('Error fetching repositories:', error.message);
+    throw new Error('Network error. Please check your internet connection.');
   }
 };

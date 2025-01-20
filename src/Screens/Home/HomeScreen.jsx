@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { View, TextInput, FlatList, TouchableOpacity, ActivityIndicator, Text } from 'react-native';
+import { View, TextInput, FlatList, TouchableOpacity, ActivityIndicator, Text, Modal, StyleSheet } from 'react-native';
 import { useTheme } from 'styled-components/native';
+import NetInfo from '@react-native-community/netinfo';
 import { searchRepositories } from '../../API/github';
 import RepositoryItem from '../../components/RepositoryItem';
 import IconSearch from 'react-native-vector-icons/Feather';
@@ -16,41 +17,40 @@ const HomeScreen = ({ navigation, route }) => {
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(route.params?.page || 1);
   const [focus, setFocus] = useState(null);
-  const [errorMessage, setErrorMessage] = useState('');
+  const [isConnected, setIsConnected] = useState(true);
   const theme = useTheme();
   const { isDarkMode, toggleDarkMode } = useContext(ThemeContext);
+  const [isModalVisible, setIsModalVisible] = useState(false); 
 
-  const fetchRepositories = async () => {
-    if (loading || !query) return;
+  useEffect(() => {
+    const unsubscribe = NetInfo.addEventListener((state) => {
+      const connected = state.isConnected && state.isInternetReachable;
+      setIsConnected(connected);
+      setIsModalVisible(!connected); 
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+ const fetchRepositories = async () => {
+    if (loading || !query || !isConnected) return;
     setLoading(true);
     try {
       const newRepos = await searchRepositories(query, page);
       setRepositories((prev) => [...prev, ...newRepos]);
       setPage((prev) => prev + 1);
-      setErrorMessage(''); 
     } catch (error) {
-      if (!errorMessage) {
-        setErrorMessage(error.message || 'An error occurred while fetching data.');
-      }
+      console.error('Error fetching repositories:', error);
     } finally {
       setLoading(false);
     }
   };
 
-  const handleInputChange = (text) => {
-    if (!errorMessage) {
-      setErrorMessage(''); 
-    }
-    setQuery(text);
-    setRepositories([]); 
-    setPage(1);
-  };
-
   useEffect(() => {
-    if (query && repositories.length === 0) {
+    if (query && repositories.length === 0 && isConnected) {
       fetchRepositories();
     }
-  }, [query]);
+  }, [query, isConnected]);
 
   return (
     <View style={[HomeScreenStyles.container, { backgroundColor: theme.colors.background }]}>
@@ -85,7 +85,11 @@ const HomeScreen = ({ navigation, route }) => {
           onFocus={() => setFocus(true)}
           onBlur={() => setFocus(false)}
           value={query}
-          onChangeText={(text) => handleInputChange(text)}
+          onChangeText={(text) => {
+            setQuery(text);
+            setRepositories([]);
+            setPage(1);
+          }}
           onSubmitEditing={fetchRepositories}
           style={[
             HomeScreenStyles.searchinput,
@@ -94,14 +98,6 @@ const HomeScreen = ({ navigation, route }) => {
           placeholderTextColor={theme.colors.placeholder}
         />
       </View>
-
-   
-      {errorMessage ? (
-        <Text style={[HomeScreenStyles.errorMessage,{color:theme.colors.textheader}]}>
-          {errorMessage}
-        </Text>
-      ) : null}
-
       <View style={HomeScreenStyles.list}>
         <FlatList
           data={repositories}
@@ -136,6 +132,24 @@ const HomeScreen = ({ navigation, route }) => {
           style={HomeScreenStyles.themeIcon}
         />
       </TouchableOpacity>
+
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={isModalVisible}
+        onRequestClose={() => setIsModalVisible(false)} 
+      >
+        <View style={HomeScreenStyles.modalContainer}>
+          <View style={HomeScreenStyles.modalContent}>
+            <Text style={HomeScreenStyles.modalText}>NO INTERNET.</Text>
+            <Text style={HomeScreenStyles.modalText1}>No internet connectivity detected. Please reconnect and try again.</Text>
+            <TouchableOpacity style={HomeScreenStyles.okbutton} 
+                      onPress={() => setIsModalVisible(false)}>
+              <Text style={HomeScreenStyles.ok}>Ok</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </Modal>
     </View>
   );
 };

@@ -95,7 +95,42 @@ const HomeScreenStyles = StyleSheet.create({
         fontWeight: "500",
         lineHeight: scale(24), 
         top:scale(20)
-    }
+    },
+    modalContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: 'rgba(0,0,0,0.5)',
+      },
+      modalContent: {
+        width: '90%',
+        height:"22%",
+        padding: 23,
+        backgroundColor: 'white',
+        borderRadius: 10,
+      },
+      modalText: {
+        fontSize: 20,
+        marginBottom: 15,
+        color:"#85878C",
+        lineHeight:28,
+        fontWeight:"300"
+      },
+      modalText1: {
+        fontSize: 13,
+        marginBottom: 20,
+        color:"#000"
+      },
+      ok:{
+        fontSize: 14,
+        color:"#0056ff",
+       fontWeight:"500",
+ },
+ okbutton:{
+    justifyContent:"flex-end",
+    alignItems:"flex-end",
+    paddingRight:5
+ }
 });
 
 export default HomeScreenStyles;
