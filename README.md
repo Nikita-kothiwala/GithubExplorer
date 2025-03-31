@@ -3,29 +3,28 @@
 GitHub Explorer is a React Native app for exploring GitHub repositories. 
 
 
-  
-
+ 
+ 
 ## 📱 App Screenshots
 <p align="center">
-  <img src="./src/asst5s/Scj.jpeg" alt="Screenshot 1" width="200"/>
-  <img src="./src/asst5s/Sck.jpeg" alt="Screenshot 2" width="200"/>
-  <img src="./src/asst5s/SC (2).jpeg" alt="Screenshot 3" width="200"/>
-  <img src="./src/asst5s/Sc.jpeg" alt="Screenshot 4" width="200"/>
-</p>
-
-<p align="center">    
-  <img src="./src/asst5s/Sca.jpeg" alt="Screenshot 5" width="200"/>
-  <img src="./src/asst5s/Scb.jpeg" alt="Screenshot 6" width="200"/>
-  <img src="./src/asst5s/Scn.jpeg" alt="Screenshot 7" width="200"/>
-  <img src="./src/asst5s/Scv.jpeg" alt="Screenshot 8" width="200"/>
+  <img src="./src/asst5s/Ska.jpeg" alt="Screenshot 1" width="200"/>
+  <img src="./src/asst5s/Skb.jpeg" alt="Screenshot 2" width="200"/>
+  <img src="./src/asst5s/Skc.jpeg" alt="Screenshot 3" width="200"/>
+  <img src="./src/asst5s/Skd.jpeg" alt="Screenshot 4" width="200"/>
 </p>
 
 <p align="center">
-  <img src="./src/asst5s/Scx.jpeg" alt="Screenshot 9" width="200"/>
+  <img src="./src/asst5s/Skf.jpeg" alt="Screenshot 5" width="200"/>
+  <img src="./src/asst5s/Skj.jpeg" alt="Screenshot 6" width="200"/>
+  <img src="./src/asst5s/Skk.jpeg" alt="Screenshot 7" width="200"/>
+  <img src="./src/asst5s/Skl.jpeg" alt="Screenshot 8" width="200"/>
 </p>
+
+<p align="center">
+  <img src="./src/asst5s/Skm.jpeg" alt="Screenshot 9" width="200"/>
+</p>
+
  
-
-
 
 ## Features 
 - Search for repositories by name
