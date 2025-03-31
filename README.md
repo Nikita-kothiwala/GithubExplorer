@@ -3,13 +3,12 @@
 GitHub Explorer is a React Native app for exploring GitHub repositories. 
 
 
-
-
+                                          
 
 ## 📱 App Screenshots
 <p align="center">
-  <img src="./src/asst5s/ `Scnst5.jpeg" alt="Screenshot 1" width="300"/> 
-  <img src="./src/asst5s/ `Sct5a.jpeg" alt="Screenshot 2" width="300"/> 
+  <img src="./src/asst5s/Scj.jpeg" alt="Screenshot 1" width="300"/>
+  <img src="./src/asst5s/Sck.jpeg" alt="Screenshot 2" width="300"/>
   <img src="./src/asst5s/SC (2).jpeg" alt="Screenshot 3" width="300"/>
   <img src="./src/asst5s/Sc.jpeg" alt="Screenshot 4" width="300"/>
   <img src="./src/asst5s/Sca.jpeg" alt="Screenshot 5" width="300"/>
@@ -17,7 +16,9 @@ GitHub Explorer is a React Native app for exploring GitHub repositories.
   <img src="./src/asst5s/Scn.jpeg" alt="Screenshot 7" width="300"/>
   <img src="./src/asst5s/Scv.jpeg" alt="Screenshot 8" width="300"/>
   <img src="./src/asst5s/Scx.jpeg" alt="Screenshot 9" width="300"/>
-</p> 
+</p>
+         
+ 
  
 
 ## Features 
