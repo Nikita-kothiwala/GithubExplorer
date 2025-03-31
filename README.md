@@ -8,9 +8,9 @@ GitHub Explorer is a React Native app for exploring GitHub repositories.
 
 ## 📱 App Screenshots
 <p align="center">
-  <img src="./src/asst5s/Scnst5.jpeg" alt="Screenshot 1" width="300"/>
-  <img src="./src/asst5s/Sct5a.jpeg" alt="Screenshot 2" width="300"/>
-  <img src="./src/asst5s/SC(2).jpeg" alt="Screenshot 3" width="300"/>
+  <img src="./src/asst5s/ `Scnst5.jpeg" alt="Screenshot 1" width="300"/> 
+  <img src="./src/asst5s/ `Sct5a.jpeg" alt="Screenshot 2" width="300"/> 
+  <img src="./src/asst5s/SC (2).jpeg" alt="Screenshot 3" width="300"/>
   <img src="./src/asst5s/Sc.jpeg" alt="Screenshot 4" width="300"/>
   <img src="./src/asst5s/Sca.jpeg" alt="Screenshot 5" width="300"/>
   <img src="./src/asst5s/Scb.jpeg" alt="Screenshot 6" width="300"/>
@@ -20,7 +20,7 @@ GitHub Explorer is a React Native app for exploring GitHub repositories.
 </p> 
  
 
-## Features
+## Features 
 - Search for repositories by name
 - View repository details (name, description, stars, forks, language, owner info)
 - Mark repositories as favorites
