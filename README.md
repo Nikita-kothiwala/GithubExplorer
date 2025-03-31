@@ -5,20 +5,24 @@ GitHub Explorer is a React Native app for exploring GitHub repositories.
 
 
 
+
+
+
+
 ## 📱 App Screenshots
 <p align="center">
-  <img src="./assets/Scnst5.jpeg" alt="Screenshot 1" width="300"/>
-  <img src="./assets/Sct5a.jpeg" alt="Screenshot 2" width="300"/>
-  <img src="./assets/SC(2).jpeg" alt="Screenshot 3" width="300"/>
-  <img src="./assets/Sc.jpeg" alt="Screenshot 4" width="300"/>
-  <img src="./assets/Sca.jpeg" alt="Screenshot 5" width="300"/>
-  <img src="./assets/Scb.jpeg" alt="Screenshot 6" width="300"/>
-  <img src="./assets/Scn.jpeg" alt="Screenshot 7" width="300"/>
-  <img src="./assets/Scv.jpeg" alt="Screenshot 8" width="300"/>
-  <img src="./assets/Scx.jpeg" alt="Screenshot 9" width="300"/>
+  <img src="./asst5s/Scnst5.jpeg" alt="Screenshot 1" width="300"/>
+  <img src="./asst5s/Sct5a.jpeg" alt="Screenshot 2" width="300"/>
+  <img src="./asst5s/SC(2).jpeg" alt="Screenshot 3" width="300"/>
+  <img src="./asst5s/Sc.jpeg" alt="Screenshot 4" width="300"/>
+  <img src="./asst5s/Sca.jpeg" alt="Screenshot 5" width="300"/>
+  <img src="./asst5s/Scb.jpeg" alt="Screenshot 6" width="300"/>
+  <img src="./asst5s/Scn.jpeg" alt="Screenshot 7" width="300"/>
+  <img src="./asst5s/Scv.jpeg" alt="Screenshot 8" width="300"/>
+  <img src="./asst5s/Scx.jpeg" alt="Screenshot 9" width="300"/>
 </p>
-  
-
+ 
+ 
 
 
 ## Features
